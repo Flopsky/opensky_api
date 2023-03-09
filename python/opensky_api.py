@@ -419,12 +419,13 @@ class OpenSkyApi(object):
             raise ValueError("The time interval must be smaller than 2 hours.")
 
         params = {"begin": begin, "end": end}
-        states_json = self._get_json(
+        #states_json = 
+        return self._get_json(
             "/flights/all", self.get_flights_from_interval, params=params
         )
 
-        if states_json is not None:
-            return [FlightData(list(entry.values())) for entry in states_json]
+        #if states_json is not None:
+        #    return states_json#[FlightData(list(entry.values())) for entry in states_json]
         return None
 
     def get_flights_by_aircraft(self, icao24, begin, end):
